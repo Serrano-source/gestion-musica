@@ -13,6 +13,10 @@ class AlbumController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(Request $request)
     {
         $filters = $request->all('searchTitulo');
@@ -27,10 +31,7 @@ class AlbumController extends Controller
 
         return view('albums.index',compact('albums','filters'));
 
-
-
-
-       // $filters = $request->all('searchTitulo');
+  // $filters = $request->all('searchTitulo');
 
        /// $query = Album::with('artista');
 

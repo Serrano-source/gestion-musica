@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
+
 
 
 Route::get('/', function () {
@@ -21,6 +21,7 @@ Route::get('/', function () {
 });
 
 //Rutas de albums
+
 
 Route::get('/albums', [App\Http\Controllers\AlbumController::class, 'index'])->name('albums.index');
 Route::get('/albums/show/{id}', [App\Http\Controllers\AlbumController::class, 'show'])->name('albums.show');
@@ -66,6 +67,16 @@ Route::get('/canciones/destroy/{id}', [App\Http\Controllers\CancionController::c
 Route::get('/canciones/edit/{id}', [App\Http\Controllers\CancionController::class, 'edit'])->name('canciones.edit');
 
 Route::post('/canciones/update/{id}', [App\Http\Controllers\CancionController::class, 'update'])->name('canciones.update');
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/webSegura', function () {
+	return "Estas autentificat!!";
+})->middleware('auth'); //això protegeix la ruta
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

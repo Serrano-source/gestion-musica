@@ -19,7 +19,7 @@
 				<a href="{{ route('artistas.index') }}" class="btn btn-success"> Tornar</a><br>
 				<strong>Nombre del artista:</strong>
 				{{  $artista->Nombredelartista }}<br>
-				<strong>Artista:</strong>
+				<strong>Discografia:</strong>
 				{{ $artista->Discografia }}<br>
 					
 			</div>
